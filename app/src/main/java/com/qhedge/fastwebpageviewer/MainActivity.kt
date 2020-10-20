@@ -1,6 +1,7 @@
 package com.qhedge.fastwebpageviewer
 
 import android.app.Activity
+import android.content.Intent
 import android.os.Build
 import android.os.Bundle
 import android.text.Editable
@@ -40,16 +41,21 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
-        val url = sharedPreference.getString("url",null)
+        var url:String? = if (intent.getStringExtra(Intent.EXTRA_TEXT) != null)
+            intent.getStringExtra(Intent.EXTRA_TEXT)
+        else sharedPreference.getString("url",null)
+
         url?.let{
-            webView.loadUrl(it)
-            inputUrl.setText(url)
+            openUrl(it)
+            inputUrl.setText(it)
         }
     }
     fun onSaveButtonClick(v: View){
         val input = inputUrl.text.toString()
+        openUrl(input)
+    }
+    private fun openUrl(url:String){
         val imm = getSystemService(INPUT_METHOD_SERVICE) as InputMethodManager
-        var url = URLUtil.guessUrl(input)
         if(URLUtil.isValidUrl(url)){
             webView.loadUrl(url)
             imm.hideSoftInputFromWindow(inputUrl.windowToken,0)
@@ -58,7 +64,8 @@ class MainActivity : AppCompatActivity() {
             editor.commit()
         }else
         {
-            Toast.makeText(this, resources.getString(R.string.error), Toast.LENGTH_LONG)
+            Toast.makeText(this, resources.getString(R.string.error), Toast.LENGTH_LONG).show()
+            inputUrl.setText("")
         }
     }
 }
