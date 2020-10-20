@@ -7,9 +7,7 @@
 
 ---------------------------
 ### 2. Stack
-- Language: Kotlin version 1.3.6
-- Firebase Crashlystics
-- UI less application
+- Language: Kotlin version 1.3.71
 
 ---------------------------
 ### 3. Framework
