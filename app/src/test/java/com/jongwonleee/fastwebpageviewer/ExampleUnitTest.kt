@@ -1,4 +1,4 @@
-package com.qhedge.fastwebpageviewer
+package com.jongwonleee.fastwebpageviewer
 
 import org.junit.Test
 

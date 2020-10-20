@@ -1,4 +1,4 @@
-package com.qhedge.fastwebpageviewer
+package com.jongwonleee.fastwebpageviewer
 
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.ext.junit.runners.AndroidJUnit4

@@ -1,11 +1,9 @@
-package com.qhedge.fastwebpageviewer
+package com.jongwonleee.fastwebpageviewer
 
 import android.app.Activity
 import android.content.Intent
 import android.os.Build
 import android.os.Bundle
-import android.text.Editable
-import android.util.Log
 import android.view.View
 import android.view.inputmethod.InputMethodManager
 import android.webkit.URLUtil
